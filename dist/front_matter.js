@@ -60,6 +60,7 @@ function parse(str, options = {}) {
     return data;
 }
 function parseYAML(str, options) {
+    if (str) return;
     const result = (0, yaml_1.parse)(escapeYAML(str), {
         customTags: [(0, timestamp_1.timestampFactory)(options.defaultTimeZone)]
     });
