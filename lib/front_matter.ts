@@ -37,7 +37,7 @@ interface ParseOptions {
   defaultTimeZone?: string;
 }
 
-function parse(str: string, /* eslint-disable-next-line @typescript-eslint/no-unused-vars */ options: ParseOptions = {}) {
+function parse(str: string, options: ParseOptions = {}) {
   if (typeof str !== 'string') throw new TypeError('str is required!');
 
   const splitData = split(str);
@@ -51,7 +51,7 @@ function parse(str: string, /* eslint-disable-next-line @typescript-eslint/no-un
     data = parseJSON(raw);
   } else {
     // 不解析yaml我已经用hexo-enhancer自动生成了title等信息，不符合格式的会报错
-    // data = parseYAML(raw, options);
+    data = parseYAML(raw, options);
   }
 
   if (!data) return { _content: str };
@@ -59,8 +59,9 @@ function parse(str: string, /* eslint-disable-next-line @typescript-eslint/no-un
   data._content = splitData.content;
   return data;
 }
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+
 function parseYAML(str, options: ParseOptions) {
+  if (str) return;
   const result = ymlParse(escapeYAML(str), {
     customTags: [timestampFactory(options.defaultTimeZone)]
   });
