@@ -50,7 +50,8 @@ function parse(str: string, options: ParseOptions = {}) {
   if (splitData.separator.startsWith(';')) {
     data = parseJSON(raw);
   } else {
-    data = parseYAML(raw, options);
+    // 不解析yaml我已经用hexo-enhancer自动生成了title等信息
+    // data = parseYAML(raw, options);
   }
 
   if (!data) return { _content: str };
