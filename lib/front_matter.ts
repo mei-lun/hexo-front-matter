@@ -53,7 +53,8 @@ function parse(str: string, options: ParseOptions = {}) {
     // 不解析yaml我已经用hexo-enhancer自动生成了title等信息，不符合格式的会报错
     try {
       data = parseYAML(raw, options);
-    } catch () {
+    } catch (err) {
+      console.error('YAML 解析失败（详情）：', err);
     }
   }
 
