@@ -47,12 +47,7 @@ function parse(str, options = {}) {
     }
     else {
         // 不解析yaml我已经用hexo-enhancer自动生成了title等信息，不符合格式的会报错
-        try {
-            data = parseYAML(raw, options);
-        }
-        catch (err) {
-            console.error('YAML 解析失败（详情）：', err);
-        }
+        // data = parseYAML(raw, options);
     }
     if (!data)
         return { _content: str };
@@ -60,7 +55,6 @@ function parse(str, options = {}) {
     return data;
 }
 function parseYAML(str, options) {
-    if (str) return;
     const result = (0, yaml_1.parse)(escapeYAML(str), {
         customTags: [(0, timestamp_1.timestampFactory)(options.defaultTimeZone)]
     });
