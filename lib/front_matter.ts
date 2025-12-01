@@ -59,7 +59,7 @@ function parse(str: string, _options: ParseOptions = {}) {
   data._content = splitData.content;
   return data;
 }
-
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 function parseYAML(str, options: ParseOptions) {
   const result = ymlParse(escapeYAML(str), {
     customTags: [timestampFactory(options.defaultTimeZone)]
