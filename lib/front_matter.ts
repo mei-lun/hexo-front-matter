@@ -37,7 +37,7 @@ interface ParseOptions {
   defaultTimeZone?: string;
 }
 
-function parse(str: string, _options: ParseOptions = {}) {
+function parse(str: string, /* eslint-disable-next-line @typescript-eslint/no-unused-vars */ options: ParseOptions = {}) {
   if (typeof str !== 'string') throw new TypeError('str is required!');
 
   const splitData = split(str);
