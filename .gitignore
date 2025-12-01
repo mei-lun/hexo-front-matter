@@ -4,5 +4,4 @@ tmp/
 *.log
 .idea/
 coverage
-dist
 package-lock.json
